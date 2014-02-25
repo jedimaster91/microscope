@@ -46,8 +46,7 @@ if (Posts.find().count() === 0) {
     userId: tom._id,
     author: tom.profile.name,
     submitted: now -5 * 3600 * 1000,
-    body: 'Interesting project Sacha, can I get involved?',
-    commentsCount: 0
+    body: 'Interesting project Sacha, can I get involved?'
   });
 
   Comments.insert({
@@ -55,8 +54,7 @@ if (Posts.find().count() === 0) {
     userId: sacha._id,
     author: sacha.profile.name,
     submitted: now -5 * 3600 * 1000,
-    body: 'You sure can, Tom!',
-    commentsCount: 0
+    body: 'You sure can, Tom!'
   });
 
   Posts.insert({
@@ -64,7 +62,8 @@ if (Posts.find().count() === 0) {
     userId: tom._id,
     author: tom.profile.name,
     url: 'http://meteor.com',
-    submitted: now - 10 * 3600 * 1000
+    submitted: now - 10 * 3600 * 1000,
+    commentsCount: 0
   });
 
   Posts.insert({
@@ -72,7 +71,18 @@ if (Posts.find().count() === 0) {
     userId: tom._id,
     author: tom.profile.name,
     url: 'http://themeteorbook.com',
-    submitted: now - 12 * 3600 * 1000
+    submitted: now - 12 * 3600 * 1000,
+    commentsCount: 0
   });
 
+  for (var i = 0; i < 10; i++) {
+    Posts.insert({
+      title: 'Test post #' + i,
+      author: sacha.profile.name,
+      userId: sacha._id,
+      url: 'http://google.com/?q=test-' + i,
+      submitted: now - i * 3600 * 1000,
+      commentsCount: 0
+    });
+  }
 }
