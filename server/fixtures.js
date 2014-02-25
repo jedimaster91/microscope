@@ -85,4 +85,16 @@ if (Posts.find().count() === 0) {
       commentsCount: 0
     });
   }
+
+  for (var i = 0; i < 10; i++) {
+    Posts.insert({
+      title: 'Test post #' + i,
+      author: tom.profile.name,
+      userId: tom._id,
+      url: 'http://yahoo.com/?q=test-' + i,
+      submitted: now - i * 3600 * 1000,
+      commentsCount: 0
+    });
+  }
+
 }
